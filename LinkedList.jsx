@@ -11,11 +11,13 @@ class LinkedList {
   }
 
   insertAt(item, ptr) {
+    //if list is empty add as first item
     if(this.head === null) {
       this.insertFirst(item);
     } else {
       let currNode = this.head;
       let prevNode = this.head;
+      //create variable to keep track of how many in list
       let count = 0
       while(count !== ptr) {
         prevNode = currNode;
@@ -157,6 +159,7 @@ function main() {
   // console.log(SLL.find('Boomer'));
 
   SLL.insertAt('Kat', 3);
+  SLL.insertAt('Kat', 4);
   //console.log(SLL.find('Kat'));
 
   SLL.remove('Tauhida');
@@ -165,7 +168,9 @@ function main() {
   //console.log(size(SLL));
   //console.log(isEmpty(SLL));
   //console.log(findPrev(SLL, 'Hotdog'));
-  console.log(findLast(SLL));
+  //console.log(findLast(SLL));
+  //WhatDoesThisProgramDo(SLL);
+
 }
 
 main();
@@ -222,3 +227,25 @@ function findLast(sll) {
  to insert an item in the sorted linked list preserving the order
   of the list. You can take only one pass through the list to do this.
    Don't worry about duplicates. */
+
+
+   function WhatDoesThisProgramDo(lst){
+    let current = lst.head;
+    //while not an empty list
+    while(current !== null){
+        let newNode = currNode;
+        //while newNode isn't last in list
+        while (newNode.next !== null) {
+          //if next item value matches current value
+            if (newNode.next.value === currNode.value) {
+              //change next node to the next after
+              // to unlink duplicates from the list
+                newNode.next = newNode.next.next;
+            }
+            else{
+                newNode = newNode.next;
+            }
+        }
+        currNode = currNode.next;
+    }
+}
