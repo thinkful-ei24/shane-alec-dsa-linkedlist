@@ -7,11 +7,46 @@ class _Node {
 
 class LinkedList {
   constructor() {
-    this.head = new null;
+    this.head = null;
+  }
+
+  insertAt(item, ptr) {
+    if(this.head === null) {
+      this.insertFirst(item);
+    } else {
+      let tempNode = this.head;
+      let prevNode = this.head;
+      while(tempNode.next !== ptr) {
+        prevNode = tempNode;
+        tempNode = tempNode.next;
+      }
+      tempNode.next = new _Node(item, null);
+    }
   }
 
   insertFirst(item) {
     this.head = new _Node(item, this.head);
+  }
+
+  insertBefore(item, item2) {
+    //check to see if empty
+    if(this.head === null) {
+      //if it is, insert new item as only item
+      this.insertFirst(item);
+    } else {
+      let tempNode = this.head;
+      let currNode = this.head;
+      let prevNode = this.head;
+      while ((currNode !== null) && (currNode.value !== item2)) {
+        //save prev & current node
+        prevNode = currNode;
+        currNode = currNode.next;
+      }
+      if(currNode === null) {
+        return
+      }
+      prevNode.next = new _Node(item, currNode);
+    }
   }
 
   insertLast(item) {
@@ -27,6 +62,26 @@ class LinkedList {
       }
       //set the end node ptr to the new node
       tempNode.next = new _Node(item, null);
+    }
+  }
+
+  insertAfter(item, ptr) {
+    //check to see if empty
+    if(this.head === null) {
+      //if it is, insert new item as only item
+      this.insertFirst(item);
+    } else {
+      let tempNode = this.head;
+      let currNode = this.head;
+      let prevNode = this.head;
+      while ((currNode !== null) && (currNode.value !== ptr)) {
+        //save prev & current node
+        prevNode = currNode;
+        currNode = currNode.next;
+      }
+      //set the end node ptr to the currNode.next node
+      tempNode.next = new _Node(item, currNode);
+      prevNode.next = tempNode;
     }
   }
 
@@ -80,11 +135,27 @@ class LinkedList {
   }
 }
 
+function main() {
+  const SLL = new LinkedList();
 
-function display(sll) {
+  SLL.insertFirst('Apollo');
+  SLL.insertLast('Boomer');
+  SLL.insertLast('Helo');
+  SLL.insertLast('Husker');
+  SLL.insertLast('Starbuck');
+  //console.log(SLL);
+
+  //SLL.insertLast('Tauhida');
+
+  //SLL.remove('squirrel');
+
+  SLL.insertBefore('Athena', 'Boomer');
+  console.log(SLL.find('Athena'));
+  console.log(SLL.find('Apollo'));
+  //SLL.insertAfter('Hotdog', 'Helo');
+  //console.log(SLL.find('Boomer'));
+
 
 }
 
-function size(sll) {
-
-}
+main();
