@@ -69,6 +69,23 @@ class LinkedList {
     }
   }
 
+  insertWithNext(item, next) {
+    next = this.find(next);
+    //check to see if empty
+    if(this.head === null) {
+      //if it is, insert new item as only item
+      this.insertFirst(item);
+    } else {
+      let tempNode = this.head;
+      //move through list until end
+      while(tempNode.next !== null) {
+        tempNode = tempNode.next;
+      }
+      //set the end node ptr to the new node
+      tempNode.next = new _Node(item, next);
+    }
+  }
+
   insertAfter(item, ptr) {
     //check to see if empty
     if(this.head === null) {
@@ -170,6 +187,9 @@ function main() {
   //console.log(findLast(SLL));
   //WhatDoesThisProgramDo(SLL);
   //console.log(reverseList(SLL));
+  SLL.insertWithNext('DOG', 'Helo');
+  console.log(display(SLL));
+  console.log(cycleList(SLL));
 }
 
 main();
@@ -279,14 +299,27 @@ function middleNode(sll){
     newCount++;
   }
 }
-const thing = new LinkedList();
-thing.insertFirst('Apollo');
-thing.insert('Boomer');
-thing.insert('Helo');
-thing.insert('Husker');
-thing.insert('Starbuck');
-console.log(middleNode(thing));
+// const thing = new LinkedList();
+// thing.insertFirst('Apollo');
+// thing.insert('Boomer');
+// thing.insert('Helo');
+// thing.insert('Husker');
+// thing.insert('Starbuck');
+// console.log(middleNode(thing));
 
+function cycleList(sll) {
+  let currNode = sll.head;
+  let seen = []
+  while(currNode){
+    seen.push(currNode);
+    currNode = currNode.next;
+    console.log(seen);
+    if(seen.includes(currNode.next)) {
+      return true;
+    }
+  }
+  return false;
+}
 
    function WhatDoesThisProgramDo(lst){
     let current = lst.head;
