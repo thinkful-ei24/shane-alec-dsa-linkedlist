@@ -299,6 +299,7 @@ function middleNode(sll){
     newCount++;
   }
 }
+<<<<<<<
 // const thing = new LinkedList();
 // thing.insertFirst('Apollo');
 // thing.insert('Boomer');
@@ -306,6 +307,27 @@ function middleNode(sll){
 // thing.insert('Husker');
 // thing.insert('Starbuck');
 // console.log(middleNode(thing));
+=======
+function reverse(list){
+  let node = list;
+  let previous = null;
+
+  while(node){
+    let save = node.next;
+    node.next = previous;
+    previous = node;
+    node = save;
+  }
+  return previous;
+}
+const thing = new LinkedList();
+thing.insertFirst('Apollo');
+thing.insert('Boomer');
+thing.insert('Helo');
+thing.insert('Husker');
+thing.insert('Starbuck');
+console.log(reverse(thing));
+>>>>>>>
 
 function cycleList(sll) {
   let currNode = sll.head;
