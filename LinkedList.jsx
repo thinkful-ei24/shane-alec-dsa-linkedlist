@@ -169,7 +169,7 @@ function main() {
   //console.log(findPrev(SLL, 'Hotdog'));
   //console.log(findLast(SLL));
   //WhatDoesThisProgramDo(SLL);
-
+  //console.log(reverseList(SLL));
 }
 
 main();
@@ -219,6 +219,25 @@ function findLast(sll) {
   return lastNode;
 }
 
+function reverseList(sll) {
+  let currNode = sll.head;
+  let prevNode = sll.head;
+  let nextNode = sll.head;
+
+  //change current node next to prev node
+  while(currNode) {
+    //set next to current next
+    nextNode = currNode.next;
+    // change current item to link to item set as prev during last loop
+    currNode.next = prevNode
+    //set next prev to current item of this iteration
+    prevNode = currNode
+    //set next node for next iteration
+    currNode = nextNode
+  }
+  return prevNode;
+}
+
 function thirdFromLast(sll){
   let node = sll.head;
   let count = 0;
@@ -242,11 +261,6 @@ function thirdFromLast(sll){
 
 const thing = new LinkedList();
 
-
-/*Given a sorted linked list, write a function insertInSortedOrder()
- to insert an item in the sorted linked list preserving the order
-  of the list. You can take only one pass through the list to do this.
-   Don't worry about duplicates. */
 
 
    function WhatDoesThisProgramDo(lst){
