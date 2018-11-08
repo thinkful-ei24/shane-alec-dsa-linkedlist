@@ -5,16 +5,20 @@ class _Node {
   }
 }
 
-class LinkedList() {
+class LinkedList {
   constructor() {
     this.head = new null;
   }
 
-  insertbefore()
+  insertFirst()
 
-  insertAt()
+  insert()
 
-  insertAfter()
+  insertLast()
+
+  remove()
+
+  find()
 
 }
 
