@@ -171,4 +171,19 @@ function main() {
 
 }
 
-main();
+// main();
+
+function reverse(list) {
+  let currNode = list.head;
+  let previous = list.prev;
+  let next = currNode.next;
+
+  while (currNode) {
+    next = currNode.next;
+    previous = currNode.prev;
+    currNode.next = previous;
+    currNode.prev = next;
+    currNode = next;
+  }
+  return previous;
+}
