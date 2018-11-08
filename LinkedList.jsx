@@ -82,7 +82,6 @@ class LinkedList {
       }
       //set the end node ptr to the nextNode
       currNode.next = new _Node(item, nextNode);
-
     }
   }
 
@@ -215,7 +214,28 @@ function findLast(sll) {
   return lastNode;
 }
 
+function thirdFromLast(sll){
+  let node = sll.head;
+  let count = 0;
+  while(node !== null){
+    node = node.next;
+    count++;
+  }
+  let countTo = count-3;
+  console.log('this is countTo');
+  console.log(countTo);
+  let newCount = 0;
+  let newNode = sll.head;
+  while(newNode !== null){
+    if(newCount === countTo){
+      return node.value;
+    }
+    newNode = newNode.next;
+    count++;
+  }
+}
 
+const thing = new LinkedList();
 
 
 /*Given a sorted linked list, write a function insertInSortedOrder()
