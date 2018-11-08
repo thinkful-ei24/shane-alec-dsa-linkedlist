@@ -235,8 +235,33 @@ function thirdFromLast(sll){
   }
 }
 
+function middleNode(sll){
+  let node = sll.head;
+  let count = 0;
+  while(node !== null){
+    node = node.next;
+    count++;
+  }
+  let middle = Math.ceil(count/2);
+  console.log(middle);
+  let newCount = 0;
+  let newNode = sll.head;
+  while(newNode !== null){
+    console.log('this is newCount ' + newCount);
+    if(newCount === middle){
+      return newNode.value;
+    }
+    newNode = newNode.next;
+    newCount++;
+  }
+}
 const thing = new LinkedList();
-
+thing.insertFirst('Apollo');
+thing.insert('Boomer');
+thing.insert('Helo');
+thing.insert('Husker');
+thing.insert('Starbuck');
+console.log(middleNode(thing));
 
 /*Given a sorted linked list, write a function insertInSortedOrder()
  to insert an item in the sorted linked list preserving the order
