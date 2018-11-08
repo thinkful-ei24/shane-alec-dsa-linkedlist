@@ -255,13 +255,25 @@ function middleNode(sll){
     newCount++;
   }
 }
+function reverse(list){
+  let node = list;
+  let previous = null;
+
+  while(node){
+    let save = node.next;
+    node.next = previous;
+    previous = node;
+    node = save;
+  }
+  return previous;
+}
 const thing = new LinkedList();
 thing.insertFirst('Apollo');
 thing.insert('Boomer');
 thing.insert('Helo');
 thing.insert('Husker');
 thing.insert('Starbuck');
-console.log(middleNode(thing));
+console.log(reverse(thing));
 
 /*Given a sorted linked list, write a function insertInSortedOrder()
  to insert an item in the sorted linked list preserving the order
