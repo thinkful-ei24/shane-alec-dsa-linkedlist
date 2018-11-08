@@ -162,8 +162,10 @@ function main() {
   SLL.remove('Tauhida');
 
   //display(SLL);
-  console.log(size(SLL));
-  console.log(isEmpty(SLL));
+  //console.log(size(SLL));
+  //console.log(isEmpty(SLL));
+  //console.log(findPrev(SLL, 'Hotdog'));
+  console.log(findLast(SLL));
 }
 
 main();
@@ -192,3 +194,31 @@ function size(sll) {
 function isEmpty(sll) {
   return (sll.head === null);
 }
+
+function findPrev(sll, item) {
+    let node = sll.head;
+    let prevNode = sll.head;
+    while(node !== null && node.value !== item){
+      prevNode = node;
+      node = node.next;
+    }
+    return prevNode;
+}
+
+function findLast(sll) {
+  let node = sll.head;
+  let lastNode = sll.head;
+  while(node !== null){
+    lastNode = node;
+    node = node.next;
+  }
+  return lastNode;
+}
+
+
+
+
+/*Given a sorted linked list, write a function insertInSortedOrder()
+ to insert an item in the sorted linked list preserving the order
+  of the list. You can take only one pass through the list to do this.
+   Don't worry about duplicates. */
