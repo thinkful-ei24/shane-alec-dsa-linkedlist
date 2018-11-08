@@ -329,19 +329,34 @@ thing.insert('Starbuck');
 console.log(reverse(thing));
 >>>>>>>
 
-function cycleList(sll) {
-  let currNode = sll.head;
-  let seen = []
-  while(currNode){
-    seen.push(currNode);
-    currNode = currNode.next;
-    console.log(seen);
-    if(seen.includes(currNode.next)) {
+// function cycleList(sll) {
+//   let currNode = sll.head;
+//   let seen = []
+//   while(currNode){
+//     seen.push(currNode);
+//     currNode = currNode.next;
+//     console.log(seen);
+//     if(seen.includes(currNode.next)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+function hasCycle(head){
+  let slow = head;
+  let fast = head;
+
+  while(fast !== null && fast.next !== null){
+    slow = slow.next;
+    fast = fast.next.next;
+    if(slow === fast){
       return true;
     }
   }
   return false;
 }
+
 
    function WhatDoesThisProgramDo(lst){
     let current = lst.head;
