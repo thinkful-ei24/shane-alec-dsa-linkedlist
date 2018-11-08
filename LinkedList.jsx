@@ -299,15 +299,6 @@ function middleNode(sll){
     newCount++;
   }
 }
-<<<<<<<
-// const thing = new LinkedList();
-// thing.insertFirst('Apollo');
-// thing.insert('Boomer');
-// thing.insert('Helo');
-// thing.insert('Husker');
-// thing.insert('Starbuck');
-// console.log(middleNode(thing));
-=======
 function reverse(list){
   let node = list;
   let previous = null;
@@ -327,7 +318,6 @@ thing.insert('Helo');
 thing.insert('Husker');
 thing.insert('Starbuck');
 console.log(reverse(thing));
->>>>>>>
 
 // function cycleList(sll) {
 //   let currNode = sll.head;
